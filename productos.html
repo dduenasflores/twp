@@ -1,0 +1,80 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Supermercado UTP</title>
+    <style>
+        table {
+            background-color: #b8e994; /* Verde claro */
+            width: 80%; /* Centrar la tabla en el contenedor */
+            margin: 0 auto; /* Centrar la tabla horizontalmente */
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        caption {
+            font-size: 24px;
+            text-align: center;
+            background-color: #b8e994; /* Mismo color que el fondo de la tabla */
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Productos</h1>
+    </header>
+    <main>
+        <table>
+            <caption>Lista de Productos</caption>
+            <thead>
+                <tr>
+                    <th>Nombre del Producto</th>
+                    <th>En Stock</th>
+                    <th>Imagen del Producto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Producto 1</td>
+                    <td>Sí</td>
+                    <td><img src="imagen1.jpg" alt="Producto 1"></td>
+                </tr>
+                <tr>
+                    <td>Producto 2</td>
+                    <td>Sí</td>
+                    <td><img src="imagen2.jpg" alt="Producto 2"></td>
+                </tr>
+                <tr>
+                    <td>Producto 3</td>
+                    <td>No</td>
+                    <td><img src="imagen3.jpg" alt="Producto 3"></td>
+                </tr>
+                <tr>
+                    <td>Producto 4</td>
+                    <td>Sí</td>
+                    <td><img src="imagen4.jpg" alt="Producto 4"></td>
+                </tr>
+                <tr>
+                    <td>Producto 5</td>
+                    <td>No</td>
+                    <td><img src="imagen5.jpg" alt="Producto 5"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total de productos en stock: 3</td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+    <footer>
+        <p>Supermercado UTP</p>
+    </footer>
+</body>
