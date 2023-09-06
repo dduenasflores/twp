@@ -3,21 +3,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Supermercado UTP</title>
     <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+   <body>
+        <section id="formulario">
+            <form action="procesar_formulario.php" method="POST">   
        <style>
         body {
             background-color: #87CEEB;
             margin: 10; 
             padding: 50; 
         }
-    </style>
-    <main>
-       <fieldset>
-           <style>
+      
+        
         fieldset {
             border: 5px solid #ccc; 
-            padding: 10px; 
+            padding: 15px; 
             display: inline-block; /
             width: auto;
         }
@@ -25,9 +24,9 @@
             font-weight: bold;
         }
     </style>
+    <main>
+           <fieldset>
            <legend>Contáctenos</legend>
-        <section id="formulario">
-            <form action="procesar_formulario.php" method="POST">
                 <label for="nombres">Nombres:</label>
                 <input type="text" id="nombres" name="nombres" required><br>
 
@@ -51,19 +50,7 @@
                     <option value="viudo">Viudo/a</option>
                 </select><br>
       </fieldset>
-                 <fieldset>
-           <style>
-        fieldset {
-            border: 5px solid #ccc; 
-            padding: 15px; 
-            display: inline-block; /
-            width: auto;
-        }
-        legend {
-            font-weight: bold;
-        }
-    </style>
-                    <legend>Comentarios</legend>
+<legend>Comentarios</legend>
                 <label for="tipoMensaje">Tipo de Mensaje:</label>
                 <input type="radio" id="consulta" name="tipoMensaje" value="consulta" required>
                 <label for="consulta">Consulta</label>
@@ -89,8 +76,8 @@
               </fieldset>
             </form>
         </section>
- 
     </main>
+                  <body>
     <footer>
 <nav>
             <ul>
