@@ -28,7 +28,7 @@
                 <label for="email">Correo Electrónico:</label>
                 <input type="email" id="email" name="email" required><br>
 
-                <label for="celular">Número de celular:</label>
+                <label for="celular">Número de Celular:</label>
                 <input type="tel" id="celular" name="celular" required><br>
 
                 <label for="estadoCivil">Estado Civil:</label>
@@ -52,22 +52,10 @@
 
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
-<button id="boton">
+<button>
                 <input type="button" value="Enviar">
                <img  src="enviar.png" alt="check" style="vertical-align:middle;">  
-       <audio id="enviando" src="enviando.mp3" preload="auto"></audio>
-
-    <script>
        
-        function reproducirSonido() {
-            
-            var audio = document.getElementById('enviando');
-          
-            audio.play();
-        }
-
-        document.getElementById('boton').addEventListener('click', reproducirSonido);
-    </script>      
    </button>
                <button>
                 <input type="reset" value="Limpiar">
