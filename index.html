@@ -4,6 +4,7 @@
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
 <title>Bienvenido al Supermercado UTP</title> 
+
     <link rel="stylesheet" href="css/styles.css">
        <style>
         body {
@@ -11,13 +12,12 @@
             color: #333; /* Color de las letras */
         }
         header {
-            text-align: center;
+               display: flex; /* Utiliza el modelo de caja flexible (Flexbox) */
+            align-items: center; /* Centra verticalmente el contenido */
         }
         header img {
            
-            height: 50;
-            weight: 30;
-            margin-top: 20px;
+      margin-left: 20px; /* Espacio entre el título y la imagen */
         }
         main {
             background-color: #ffbdbd; /* Salmon claro */
@@ -40,7 +40,10 @@
    
 </head>
 <body>
- <img src="utp.jpg" alt="Supermercado UTP"> 
+ <div class="header">
+        <h1>Bienvenido al Supermercado UTP</h1>
+        <img src="utp.jpg" alt="Supermercado UTP">
+    </div>
     <header>
        
  <table>
