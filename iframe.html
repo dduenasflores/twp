@@ -2,65 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Supermercado UTP</title>
 </head>
-<body>
-    <div id="frameA">
-<img id="banner" src="banner.jpg" alt="Banner de publicidad">
-        
-    </div>
-    
-    <div id="frameB">
-
-        <ul id="menu">
-            <li><a href="https://www.metro.pe/?sc=19">Metro</a></li>
-            <li><a href="https://www.tottus.com/pe">Tottus</a></li>
-            <li><a href="https://www.plazavea.com.pe/">Plaza Vea</a></li>
-            <li><a href="https://www.tiendasmass.com.pe/">Tiendas Mass</a></li>
-            <li><a href="https://www.reinsac.com/">El Super</a></li>
-        </ul>
-    </div>
-    
-    <div id="frameC">
-        <!-- Tabla de productos y precios -->
-        <table>
-            <caption>Productos y Precios</caption>
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Metro</th>
-                    <th>Tottus</th>
-                    <th>Plaza Vea</th>
-                    <th>Tiendas Mass</th>
-                    <th>El Super</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Leche Gloria</td>
-                    <td>S/. 4.00</td>
-                    <td>S/. 3.50</td>
-                    <td>S/. 3.00</td>
-                    <td>S/. 5.00</td>
-                    <td>S/. 3.00</td>
-                </tr>
-                <!-- Agrega más filas para otros productos -->
-            </tbody>
-        </table>
-        
-        <!-- Video -->
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de videos.
-        </video>
-    </div>
-    
-    <div id="frameD">
-        <!-- Datos informativos -->
-        <p>Elaborado por: Diego Dueñas</p>
-        <p>Contacto: 99990000</p>
-    </div>
-</body>
+        <style>
+        body {
+            background-color: #D3D3D3;
+            margin: 0; 
+            padding: 0; 
+        }
+    </style>
+<frameset cols="25%, 75%">
+    <!-- Frame A: Menú vertical con enlaces a otros supermercados -->
+    <frame src="menu.html" name="menu">
+    <!-- Frame B: Contenido principal -->
+    <frame src="contenido.html" name="contenido">
+</frameset>
+<noframes>
+    <body>
+        <p>Tu navegador no admite frames.</p>
+    </body>
+</noframes>
 </html>
