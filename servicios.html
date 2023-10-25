@@ -1,41 +1,72 @@
+<!DOCTYPE html>
+<html>
+
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - Supermercado UTP</title>
     <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
     <style>
         body {
             background-color: #D3D3D3;
-            margin: 0; 
-            padding: 0; 
+            margin: 0;
+            padding: 0;
+        }
+
+        #servicios {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #servicios li {
+            width: 45%;
+            margin: 2.5%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        #servicios li:hover {
+            transform: scale(1.05);
+        }
+
+        #servicios img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
         }
     </style>
+</head>
+
+<body>
     <header>
         <h1>Servicios</h1>
     </header>
     <main>
         <section id="servicios">
-            <h2>Nuestros Servicios</h2>
+
             <ol>
                 <li>
-                    <h3>Guardería</h3>
+                    <h2>Guardería</h2>
                     <img src="guarderia.jpg" alt="Guardería">
                     <p>Servicio de guardería para niños mientras realizas tus compras.</p>
                 </li>
                 <li>
-                    <h3>Cochera</h3>
+                    <h2>Cochera</h2>
                     <img src="cochera.jpg" alt="Cochera">
                     <p>Amplia cochera para estacionar tu vehículo de forma segura y conveniente.</p>
                 </li>
                 <li>
-                    <h3>Lavado de Carros</h3>
+                    <h2>Lavado de Carros</h2>
                     <img src="lavado.jpg" alt="Lavado de Carros">
                     <p>Servicio de lavado de carros para mantener tu vehículo limpio y reluciente.</p>
                 </li>
                 <li>
-                    <h3>Lavandería</h3>
+                    <h2>Lavandería</h2>
                     <img src="almacen.jpg" alt="Almacén">
                     <p>Lavandería para dejar tu ropa como nueva y limpia.</p>
                 </li>
@@ -43,7 +74,7 @@
         </section>
     </main>
     <footer>
- <nav>
+        <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
             </ul>
@@ -51,3 +82,4 @@
     </footer>
 </body>
 
+</html>
