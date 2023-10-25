@@ -32,27 +32,34 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
 
-    /* Estilo para el contenido del modal */
-    .modal-content {
-        background-color: #fff;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-    }
-
-    /* Estilo para el botón de cerrar */
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
+    .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
     <main>
            <fieldset>
-           <legend>Contáctenos</legend>
+           <legend>Contáctenos.</legend>
                 <label for="nombres">Nombres:</label>
                 <input type="text" id="nombres" name="nombres" required><br>
 
@@ -90,26 +97,35 @@
 
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
-<button>
-                <input type="submit" value="Enviar">
-               <img  src="enviar.png" alt="check" style="vertical-align:middle;">  
-       
-   </button>
-               <button>
-                <input type="reset" value="Limpiar">
-                 <img  src="limpiar.jpg" alt="check" style="vertical-align:middle;">
- </button>
+         <button type="submit">
+                        Enviar
+                        <img src="enviar.png" alt="check" style="vertical-align: middle;">
+                    </button>
+                    <button type="reset">
+                        Limpiar
+                        <img src="limpiar.jpg" alt="check" style="vertical-align: middle;">
+                    </button>
               </fieldset>
             </form>
         </section>
     </main>
        
- <div id="resultado" style="display: none;"></div>
+   <div id="resultado" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close">&times;</span>
+            <h2>Datos ingresados en el formulario:</h2>
+            <ul id="resultado-list">
+                <!-- Aquí se mostrarán los datos del formulario -->
+            </ul>
+        </div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const contactForm = document.getElementById("contactForm");
             const resultadoDiv = document.getElementById("resultado");
+            const resultadoList = document.getElementById("resultado-list");
+            const closeButton = document.getElementById("close");
 
             contactForm.addEventListener("submit", function (event) {
                 event.preventDefault();
@@ -118,13 +134,14 @@
                 // Recoge otros campos del formulario de la misma manera
 
                 resultadoDiv.style.display = "block";
-                resultadoDiv.innerHTML = `
-                    <h2>Datos ingresados en el formulario:</h2>
-                    <ul>
-                        <li><strong>Nombres:</strong> ${nombres}</li>
-                        <!-- Agrega otros campos aquí -->
-                    </ul>
+                resultadoList.innerHTML = `
+                    <li><strong>Nombres:</strong> ${nombres}</li>
+                    <!-- Agrega otros campos aquí -->
                 `;
+            });
+
+            closeButton.addEventListener("click", function () {
+                resultadoDiv.style.display = "none";
             });
         });
     </script>
