@@ -52,7 +52,7 @@
     </style>
     <main>
            <fieldset>
-           <legend>Contáctenos.</legend>
+           <legend>Contáctenos</legend>
                 <label for="nombres">Nombres:</label>
                 <input type="text" id="nombres" name="nombres" required><br>
 
@@ -104,41 +104,27 @@
         </section>
     </main>
        
-   <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close">&times;</span>
-            <div id="modal-content"></div>
-        </div>
-    </div>
+ <div id="resultado" style="display: none;"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const contactForm = document.getElementById("formulario"); // Cambia el ID del formulario a "formulario"
-            const modal = document.getElementById("modal");
-            const modalContent = document.getElementById("modal-content");
-            const closeModal = document.getElementById("close");
-            const enviarButton = document.getElementById("enviarButton"); // Cambia el ID del botón de enviar a "enviarButton"
+            const contactForm = document.getElementById("contactForm");
+            const resultadoDiv = document.getElementById("resultado");
 
             contactForm.addEventListener("submit", function (event) {
                 event.preventDefault();
 
-                // Recoger los datos del formulario
                 const nombres = contactForm.elements["nombres"].value;
                 // Recoge otros campos del formulario de la misma manera
 
-                // Crear una ventana emergente personalizada
-                const datosIngresados = `
-                    Datos ingresados en el formulario:
-                    Nombres: ${nombres}
-                    <!-- Agrega otros campos aquí -->
+                resultadoDiv.style.display = "block";
+                resultadoDiv.innerHTML = `
+                    <h2>Datos ingresados en el formulario:</h2>
+                    <ul>
+                        <li><strong>Nombres:</strong> ${nombres}</li>
+                        <!-- Agrega otros campos aquí -->
+                    </ul>
                 `;
-
-                modalContent.innerHTML = datosIngresados;
-                modal.style.display = "block";
-            });
-
-            closeModal.addEventListener("click", function () {
-                modal.style.display = "none";
             });
         });
     </script>
