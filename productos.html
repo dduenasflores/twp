@@ -1,12 +1,14 @@
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Supermercado UTP</title>
     <style>
         table {
-            background-color: #b8e994; /* Verde claro */
-            width: 80%; /* Centrar la tabla en el contenedor */
-            margin: 0 auto; /* Centrar la tabla horizontalmente */
+            background-color: #b8e994;
+            width: 80%;
+            margin: 0 auto;
             border-collapse: collapse;
         }
         th, td {
@@ -21,7 +23,7 @@
         caption {
             font-size: 24px;
             text-align: center;
-            background-color: #b8e994; /* Mismo color que el fondo de la tabla */
+            background-color: #b8e994;
             padding: 8px;
         }
     </style>
@@ -31,54 +33,66 @@
         <h1>Productos</h1>
     </header>
     <main>
-        <table>
-            <caption>Lista de Productos</caption>
-            <thead>
-                <tr>
-                    <th>Nombre del Producto</th>
-                    <th>En Stock</th>
-                    <th>Imagen del Producto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Cereales Angel</td>
-                    <td>Sí</td>
-                    <td><img src="cereales.jpg" alt="Producto 1"></td>
-                </tr>
-                <tr>
-                    <td>Inka Chips</td>
-                    <td>Sí</td>
-                    <td><img src="papas.jpg" alt="Producto 2"></td>
-                </tr>
-                <tr>
-                    <td>Gaseosas</td>
-                    <td>No</td>
-                    <td><img src="gaseosas.jpg" alt="Producto 3"></td>
-                </tr>
-                <tr>
-                    <td>Jabones</td>
-                    <td>Sí</td>
-                    <td><img src="jabon.jpg" alt="Producto 4"></td>
-                </tr>
-                <tr>
-                    <td>Desodorantes</td>
-                    <td>No</td>
-                    <td><img src="desodorante.jpg" alt="Producto 5"></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">Total de productos en stock: 3</td>
-                </tr>
-            </tfoot>
-        </table>
+        <!-- Modificamos la tabla a una fila de productos -->
+        <div class="product-row">
+            <div class="product">
+                <img src="cereales.jpg" alt="Cereales Angel">
+                <p>Nombre del Producto: Cereales Angel</p>
+              
+            </div>
+            <div class="product">
+                <img src="papas.jpg" alt="Inka Chips">
+                <p>Nombre del Producto: Inka Chips</p>
+        
+            </div>
+            <div class="product">
+                <img src="gaseosas.jpg" alt="Gaseosas">
+                <p>Nombre del Producto: Gaseosas</p>
+         
+            </div>
+            <div class="product">
+                <img src="jabon.jpg" alt="Jabones">
+                <p>Nombre del Producto: Jabones</p>
+         
+            </div>
+            <div class="product">
+                <img src="desodorante.jpg" alt="Desodorantes">
+                <p>Nombre del Producto: Desodorantes</p>
+          
+            </div>
+        </div>
     </main>
     <footer>
-   <nav>
+        <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
             </ul>
         </nav>
     </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const productRow = document.querySelector(".product-row");
+            const products = productRow.querySelectorAll(".product");
+
+            // Agregamos eventos de clic a cada producto
+            products.forEach((product, index) => {
+                product.addEventListener("click", () => {
+                    const productName = product.querySelector("p:first-child").textContent.split(": ")[1];
+                    const inStock = product.querySelector("p:nth-child(2)").textContent.split(": ")[1];
+                    if (inStock === "Sí") {
+                        const quantity = parseInt(prompt(`¿Cuántos ${productName} deseas comprar? (Máximo 15)`));
+                        if (!isNaN(quantity) && quantity >= 0 && quantity <= 15) {
+                            alert(`Has comprado ${quantity} ${productName}`);
+                        } else {
+                            alert(`Cantidad no válida para ${productName}`);
+                        }
+                    } else {
+                        alert(`Lo sentimos, ${productName} no hay más stock.`);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+</html>
