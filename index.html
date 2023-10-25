@@ -108,7 +108,7 @@
             </div>
             <div class="product">
                 <img src="cafeSIN2.png" alt="Cafés">
-                <p class="description">Todos los cafés mostrados tienen un 10% de descuento.</p>
+                <p class="description">Todos los Cafés mostrados tienen un 10% de descuento.</p>
                 <input type="number" class="price" placeholder="Precio">
                 <input type="number" class="discount" placeholder="Descuento (%)">
                 <p class="result">Resultado: <span class="calculation">0</span></p>
@@ -126,7 +126,7 @@
     <footer>
         <p>&#169; by: Dueñas Flores, Diego Paúl</p>
     </footer>
-    <script>
+   <script>
         document.addEventListener("DOMContentLoaded", function () {
             const products = document.querySelectorAll(".product");
 
@@ -147,23 +147,49 @@
                 }
             });
         });
-    </script>
-<script>
-    function loadPage(pageUrl) {
-        const content = document.getElementById("content");
-        content.innerHTML = "Cargando...";
 
-        setTimeout(() => {
-            fetch(pageUrl)
+        function loadPage(pageUrl) {
+            const content = document.getElementById("content");
+            content.innerHTML = "Cargando...";
+
+            setTimeout(() => {
+                fetch(pageUrl)
+                    .then(response => response.text())
+                    .then(data => {
+                        content.innerHTML = data;
+                    })
+                    .catch(error => {
+                        content.innerHTML = "Error al cargar la página";
+                    });
+            }, 1000);
+        }
+    </script>
+
+    <script>
+        // Agregamos este código para manejar el envío del formulario por AJAX
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactForm = document.getElementById("contactForm");
+
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(contactForm);
+
+                fetch("contactenos.html", {
+                    method: "POST",
+                    body: formData
+                })
                 .then(response => response.text())
                 .then(data => {
+                    // Actualizamos el contenido del div "content" con la respuesta
+                    const content = document.getElementById("content");
                     content.innerHTML = data;
                 })
                 .catch(error => {
-                    content.innerHTML = "Error al cargar la página";
+                    console.error("Error al enviar el formulario por AJAX:", error);
                 });
-        }, 1000);
-    }
-</script>
+            });
+        });
+    </script>
 </body>
 </html>
