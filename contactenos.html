@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/styles.css">
    <body>
         <section id="formulario">
-            <form action="procesar_formulario.php" method="POST">   
+        
        <style>
         body {
             background-color: #87CEEB;
@@ -40,7 +40,7 @@
                 <label for="celular">Número de Celular:</label>
                 <input type="tel" id="celular" name="celular" required><br>
 
-                <label for="estadoCivil">Estado civil:</label>
+                <label for="estadoCivil">Estado Civil:</label>
                 <select id="estadoCivil" name="estadoCivil">
                     <option value="soltero">Soltero/a</option>
                     <option value="casado">Casado/a</option>
@@ -75,29 +75,36 @@
             </form>
         </section>
     </main>
-              <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const contactForm = document.getElementById("formulario");
+             <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactForm = document.getElementById("contactForm");
+            const modal = document.getElementById("modal");
+            const modalContent = document.getElementById("modal-content");
+            const closeModal = document.getElementById("close");
 
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
 
-            // Recoger los datos del formulario
-            const nombres = contactForm.elements["nombres"].value;
-            // Recoge otros campos del formulario de la misma manera
+                // Recoger los datos del formulario
+                const nombres = contactForm.elements["nombres"].value;
+                // Recoge otros campos del formulario de la misma manera
 
-            // Crea una ventana emergente con los datos
-            const datosIngresados = `
-                Datos ingresados en el formulario:
-                Nombres: ${nombres}
-                <!-- Agrega otros campos aquí -->
-            `;
+                // Crear una ventana emergente personalizada
+                const datosIngresados = `
+                    Datos ingresados en el formulario:
+                    Nombres: ${nombres}
+                    <!-- Agrega otros campos aquí -->
+                `;
 
-            // Muestra la ventana emergente
-            alert(datosIngresados);
+                modalContent.innerHTML = datosIngresados;
+                modal.style.display = "block";
+            });
+
+            closeModal.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
         });
-    });
-</script>
+    </script>
                
     <footer>
 <nav>
