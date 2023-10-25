@@ -63,7 +63,7 @@
     <main>
            <fieldset>
              <legend>Contáctenos</legend>
-                <form id="contactForm" action="contactenos.html" method="POST">
+                 <form id="contactForm">
                     <label for="nombres">Nombres:</label>
                     <input type="text" id="nombres" name="nombres" required><br>
                     <label for="apellidos">Apellidos:</label>
@@ -82,7 +82,7 @@
                         <option value="viudo">Viudo/a</option>
                     </select><br>
                     <fieldset>
-                        <legend>Comentarios.</legend>
+                        <legend>Comentarios</legend>
                         <label for="tipoMensaje">Tipo de Mensaje:</label>
                         <input type="radio" id="consulta" name="tipoMensaje" value="consulta" required>
                         <label for="consulta">Consulta</label>
@@ -94,7 +94,7 @@
                         <input type="text" id="asunto" name="asunto" required><br>
                         <label for="mensaje">Mensaje:</label>
                         <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
-                        <button type="button" id="submitBtn">
+                        <button type="submit" id="submitBtn">
                             Enviar
                             <img src="enviar.png" alt="check" style="vertical-align: middle;">
                         </button>
