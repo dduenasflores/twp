@@ -148,22 +148,22 @@
             });
         });
     </script>
-        <script>
-        function loadPage(pageUrl) {
-            const content = document.getElementById("content");
-            content.innerHTML = "Cargando...";
+<script>
+    function loadPage(pageUrl) {
+        const content = document.getElementById("content");
+        content.innerHTML = "Cargando...";
 
-            setTimeout(() => {
-                fetch(pageUrl)
-                    .then(response => response.text())
-                    .then(data => {
-                        content.innerHTML = data;
-                    })
-                    .catch(error => {
-                        content.innerHTML = "Error al cargar la página";
-                    });
-            }, 1000);
-        }
-    </script>
+        setTimeout(() => {
+            fetch(pageUrl)
+                .then(response => response.text())
+                .then(data => {
+                    content.innerHTML = data;
+                })
+                .catch(error => {
+                    content.innerHTML = "Error al cargar la página";
+                });
+        }, 1000);
+    }
+</script>
 </body>
 </html>
