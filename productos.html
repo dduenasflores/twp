@@ -26,34 +26,13 @@
             height: auto;
         }
 
-        .product-container:hover {
-            transform: scale(1.05);
+        .product-row::-webkit-scrollbar {
+            width: 10px;
         }
 
-        table {
-            background-color: #b8e994; /* Verde claro */
-            width: 80%; /* Centrar la tabla en el contenedor */
-            margin: 0 auto; /* Centrar la tabla horizontalmente */
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            border: 1px solid #333;
-            padding: 8px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #333;
-            color: white;
-        }
-
-        caption {
-            font-size: 24px;
-            text-align: center;
-            background-color: #b8e994; /* Mismo color que el fondo de la tabla */
-            padding: 8px;
+        .product-row::-webkit-scrollbar-thumb {
+            background-color: #b8e994;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -67,27 +46,22 @@
             <div class="product-container">
                 <img src="cereales.jpg" alt="Cereales Angel">
                 <p>Cereales Angel</p>
-                <button onclick="checkStock('cereales')">Comprar</button>
             </div>
             <div class="product-container">
                 <img src="papas.jpg" alt="Inka Chips">
                 <p>Inka Chips</p>
-                <button onclick="checkStock('inka_chips')">Comprar</button>
             </div>
             <div class="product-container">
                 <img src="gaseosas.jpg" alt="Gaseosas">
                 <p>Gaseosas</p>
-                <button onclick="checkStock('gaseosas')">Comprar</button>
             </div>
             <div class="product-container">
                 <img src="jabon.jpg" alt="Jabones">
                 <p>Jabones</p>
-                <button onclick="checkStock('jabones')">Comprar</button>
             </div>
             <div class="product-container">
                 <img src="desodorante.jpg" alt="Desodorantes">
                 <p>Desodorantes</p>
-                <button onclick="checkStock('desodorantes')">Comprar</button>
             </div>
         </div>
     </main>
@@ -98,28 +72,6 @@
             </ul>
         </nav>
     </footer>
-    <script>
-        const stock = {
-            cereales: 10,
-            inka_chips: 15,
-            gaseosas: 5,
-            jabones: 20,
-            desodorantes: 2
-        };
-
-        function checkStock(productName) {
-            const amountToBuy = parseInt(prompt(`¿Cuántos ${productName} deseas comprar?`));
-            if (!isNaN(amountToBuy) && amountToBuy > 0) {
-                if (stock[productName] >= amountToBuy) {
-                    alert(`Puedes comprar ${amountToBuy} ${productName}.`);
-                } else {
-                    alert(`Lo sentimos, no hay suficiente stock para ${amountToBuy} ${productName}.`);
-                }
-            } else {
-                alert('Por favor, ingresa una cantidad válida.');
-            }
-        }
-    </script>
 </body>
 
 </html>
