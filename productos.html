@@ -6,33 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Supermercado UTP</title>
     <style>
-        .product-row {
+        .product-container {
             display: flex;
             overflow: hidden;
-        }
-
-        .product-container {
-            flex: 0 0 auto;
-            text-align: center;
-            margin: 10px;
-            padding: 10px;
+            width: 80%;
+            margin: 0 auto;
             border: 1px solid #333;
             border-radius: 5px;
-            transition: transform 0.3s;
+            transition: transform 0.5s;
         }
 
-        .product-container img {
+        .product {
+            flex: 0 0 auto;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .product img {
             max-width: 100%;
             height: auto;
-        }
-
-        .product-row::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .product-row::-webkit-scrollbar-thumb {
-            background-color: #b8e994;
-            border-radius: 10px;
         }
     </style>
 </head>
@@ -42,24 +34,24 @@
         <h1>Productos</h1>
     </header>
     <main>
-        <div class="product-row">
-            <div class="product-container">
+        <div class="product-container" id="product-container">
+            <div class="product">
                 <img src="cereales.jpg" alt="Cereales Angel">
                 <p>Cereales Angel</p>
             </div>
-            <div class="product-container">
+            <div class="product">
                 <img src="papas.jpg" alt="Inka Chips">
                 <p>Inka Chips</p>
             </div>
-            <div class="product-container">
+            <div class="product">
                 <img src="gaseosas.jpg" alt="Gaseosas">
                 <p>Gaseosas</p>
             </div>
-            <div class="product-container">
+            <div class="product">
                 <img src="jabon.jpg" alt="Jabones">
                 <p>Jabones</p>
             </div>
-            <div class="product-container">
+            <div class="product">
                 <img src="desodorante.jpg" alt="Desodorantes">
                 <p>Desodorantes</p>
             </div>
@@ -72,6 +64,30 @@
             </ul>
         </nav>
     </footer>
+    <script>
+        const container = document.getElementById("product-container");
+        let scrollValue = 0;
+
+        function scrollProducts(direction) {
+            scrollValue += direction * 300; // Change the number to control scroll distance
+            container.style.transform = `translateX(-${scrollValue}px)`;
+        }
+
+        // You can add buttons or other UI elements to trigger scrolling
+        // For example, to scroll right:
+        const scrollRightButton = document.createElement("button");
+        scrollRightButton.textContent = "Scroll Right";
+        scrollRightButton.addEventListener("click", () => scrollProducts(1));
+
+        // And to scroll left:
+        const scrollLeftButton = document.createElement("button");
+        scrollLeftButton.textContent = "Scroll Left";
+        scrollLeftButton.addEventListener("click", () => scrollProducts(-1));
+
+        // You can append these buttons to your page where needed
+        document.body.appendChild(scrollRightButton);
+        document.body.appendChild(scrollLeftButton);
+    </script>
 </body>
 
 </html>
