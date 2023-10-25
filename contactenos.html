@@ -52,7 +52,7 @@
     </style>
     <main>
            <fieldset>
-           <legend>Contáctenos</legend>
+           <legend>Contáctenos.</legend>
                 <label for="nombres">Nombres:</label>
                 <input type="text" id="nombres" name="nombres" required><br>
 
@@ -91,7 +91,7 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
 <button>
-                <input type="button" value="Enviar">
+                <input type="submit" value="Enviar">
                <img  src="enviar.png" alt="check" style="vertical-align:middle;">  
        
    </button>
@@ -104,7 +104,7 @@
         </section>
     </main>
        
-    <div id="modal" class="modal">
+   <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="close">&times;</span>
             <div id="modal-content"></div>
@@ -113,13 +113,15 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const contactForm = document.getElementById("contactForm");
+            const contactForm = document.getElementById("formulario"); // Cambia el ID del formulario a "formulario"
             const modal = document.getElementById("modal");
             const modalContent = document.getElementById("modal-content");
             const closeModal = document.getElementById("close");
-            const enviarButton = document.getElementById("enviarButton"); // Agrega el ID al botón de enviar
+            const enviarButton = document.getElementById("enviarButton"); // Cambia el ID del botón de enviar a "enviarButton"
 
-            enviarButton.addEventListener("click", function () {
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
                 // Recoger los datos del formulario
                 const nombres = contactForm.elements["nombres"].value;
                 // Recoge otros campos del formulario de la misma manera
