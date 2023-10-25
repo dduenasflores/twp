@@ -65,34 +65,63 @@
         <li><a href="iframe.html" target="contentFrame">IFrame</a></li>
     </ul>
 </nav>
- <header>
-    <h2>Productos en oferta</h2>
-    <div class="product-container">
-        <div class="product">
-            <img src="aceite.jpg" alt="Aceites">
-            <p class="description">Los aceites primor premium tienen un 10% de descuento solo por fin de semana.</p>
-            <p class="discount">Descuento: 10%</p>
+   <header>
+        <h2>Productos en oferta</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="aceite.jpg" alt="Aceites">
+                <p class="description">Los aceites primor premium tienen un 10% de descuento solo por fin de semana.</p>
+                <input type="number" class="price" placeholder="Precio">
+                <input type="number" class="discount" placeholder="Descuento (%)">
+                <p class="result">Resultado: <span class="calculation">0</span></p>
+            </div>
+            <div class="product">
+                <img src="arroz.png" alt="Arroces">
+                <p class="description">Último stock de arroz al 50% de descuento.</p>
+                <input type="number" class="price" placeholder="Precio">
+                <input type="number" class="discount" placeholder="Descuento (%)">
+                <p class="result">Resultado: <span class="calculation">0</span></p>
+            </div>
+            <div class="product">
+                <img src="cafe.jpg" alt="Cafés">
+                <p class="description">Todos los cafés mostrados tienen un 10% de descuento.</p>
+                <input type="number" class "price" placeholder="Precio">
+                <input type="number" class="discount" placeholder="Descuento (%)">
+                <p class="result">Resultado: <span class="calculation">0</span></p>
+            </div>
+            <div class="product">
+                <img src="gloria.jpg" alt="Gloria">
+                <p class="description">Por la compra de un producto de marca Gloria, te puedes llevar gratis jugos de la marca Tampico o Pura Vida.</p>
+                <input type="number" class="price" placeholder="Precio">
+                <input type="number" class="discount" placeholder="Descuento (%)">
+                <p class="result">Resultado: <span class="calculation">0</span></p>
+            </div>
         </div>
-        <div class="product">
-            <img src="arroz.png" alt="Arroces">
-            <p class="description">Último stock de arroz al 50% de descuento.</p>
-            <p class="discount">Descuento: 50%</p>
-        </div>
-        <div class="product">
-            <img src="cafe.jpg" alt="Cafés">
-            <p class="description">Todos los cafés mostrados tienen un 10% de descuento.</p>
-            <p class="discount">Descuento: 10%</p>
-        </div>
-        <div class="product">
-            <img src="gloria.jpg" alt="Gloria">
-            <p class="description">Por la compra de un producto de marca Gloria, te puedes llevar gratis jugos de la marca Tampico o Pura Vida.</p>
-            <p class="discount">Descuento: Gratis</p>
-        </div>
-    </div>
-</header>
-
+    </header>
     <footer>
         <p>&#169; by: Dueñas Flores, Diego Paúl</p>
     </footer>
-</body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const products = document.querySelectorAll(".product");
 
+            products.forEach((product) => {
+                const priceInput = product.querySelector(".price");
+                const discountInput = product.querySelector(".discount");
+                const calculation = product.querySelector(".calculation");
+
+                priceInput.addEventListener("input", updateResult);
+                discountInput.addEventListener("input", updateResult);
+
+                function updateResult() {
+                    const price = parseFloat(priceInput.value) || 0;
+                    const discount = parseFloat(discountInput.value) || 0;
+
+                    const discountedPrice = price - (price * (discount / 100));
+                    calculation.textContent = discountedPrice.toFixed(2);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
