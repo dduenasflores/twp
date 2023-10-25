@@ -63,7 +63,7 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
 <button>
-                <input type="button" value="Enviar">
+                <input type="submit" value="Enviar">
                <img  src="enviar.png" alt="check" style="vertical-align:middle;">  
        
    </button>
@@ -75,6 +75,29 @@
             </form>
         </section>
     </main>
+                  <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactForm = document.getElementById("contactForm");
+            const resultadoSection = document.getElementById("resultado");
+
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                // Recoger los datos del formulario
+                const nombres = contactForm.elements["nombres"].value;
+                // Recoge otros campos del formulario de la misma manera
+
+                // Mostrar los datos en la sección de resultados
+                resultadoSection.style.display = "block";
+                resultadoSection.innerHTML = `
+                    <h2>Datos ingresados en el formulario:</h2>
+                    <ul>
+                        <li><strong>Nombres:</strong> ${nombres}</li>
+                        <!-- Agrega otros campos aquí -->
+                    </ul>
+                `;
+            });
+        });
+    </script>
                   <body>
     <footer>
 <nav>
