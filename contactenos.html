@@ -63,7 +63,7 @@
     <main>
            <fieldset>
              <legend>Contáctenos</legend>
-                <form id="contactForm">
+                <form id="contactForm" action="contactenos.html" method="POST">
                     <label for="nombres">Nombres:</label>
                     <input type="text" id="nombres" name="nombres" required><br>
                     <label for="apellidos">Apellidos:</label>
@@ -87,14 +87,14 @@
                         <input type="radio" id="consulta" name="tipoMensaje" value="consulta" required>
                         <label for="consulta">Consulta</label>
                         <input type="radio" id="solicitud" name="tipoMensaje" value="solicitud" required>
-                        <label for="solicitud">Solicitud</label>
+                        <label for "solicitud">Solicitud</label>
                         <input type="radio" id="reclamo" name="tipoMensaje" value="reclamo" required>
                         <label for="reclamo">Reclamo</label><br>
                         <label for="asunto">Asunto:</label>
                         <input type="text" id="asunto" name="asunto" required><br>
                         <label for="mensaje">Mensaje:</label>
                         <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
-                        <button type="button" id="submitBtn">
+                        <button type="submit" id="submitBtn">
                             Enviar
                             <img src="enviar.png" alt="check" style="vertical-align: middle;">
                         </button>
