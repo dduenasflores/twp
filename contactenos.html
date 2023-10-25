@@ -59,7 +59,7 @@
     </style>
     <main>
            <fieldset>
-             <legend>Contáctenos.</legend>
+             <legend>Contáctenos</legend>
                 <form id="contactForm">
                     <label for="nombres">Nombres:</label>
                     <input type="text" id="nombres" name="nombres" required><br>
@@ -106,7 +106,7 @@
     </section>
     </main>
        
-    <div id="resultado" class="modal">
+     <div id="resultado">
         <div class="modal-content">
             <span class="close" id="close">&times;</span>
             <h2>Datos ingresados en el formulario:</h2>
@@ -116,47 +116,65 @@
         </div>
     </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const contactForm = document.getElementById("contactForm");
-        const submitBtn = document.getElementById("submitBtn");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactForm = document.getElementById("contactForm");
+            const submitBtn = document.getElementById("submitBtn");
+            const resetBtn = document.getElementById("resetBtn");
+            const resultadoDiv = document.getElementById("resultado");
+            const resultadoList = document.getElementById("resultado-list");
+            const closeButton = document.getElementById("close");
 
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
 
-            // Recoger los datos de todos los campos del formulario
-            const nombres = contactForm.elements["nombres"].value;
-            const apellidos = contactForm.elements["apellidos"].value;
-            const dni = contactForm.elements["dni"].value;
-            const email = contactForm.elements["email"].value;
-            const celular = contactForm.elements["celular"].value;
-            const estadoCivil = contactForm.elements["estadoCivil"].value;
-            const tipoMensaje = contactForm.querySelector('input[name="tipoMensaje"]:checked').value;
-            const asunto = contactForm.elements["asunto"].value;
-            const mensaje = contactForm.elements["mensaje"].value;
+                // Recoge los datos de todos los campos del formulario
+                const nombres = document.getElementById("nombres").value;
+                const apellidos = document.getElementById("apellidos").value;
+                const dni = document.getElementById("dni").value;
+                const email = document.getElementById("email").value;
+                const celular = document.getElementById("celular").value;
+                const estadoCivil = document.getElementById("estadoCivil").value;
+                const tipoMensaje = document.querySelector('input[name="tipoMensaje"]:checked').value;
+                const asunto = document.getElementById("asunto").value;
+                const mensaje = document.getElementById("mensaje").value;
 
-            // Crear un mensaje con los datos del formulario
-            const mensajeMostrar = `
-                Datos ingresados en el formulario:
-                - Nombres: ${nombres}
-                - Apellidos: ${apellidos}
-                - Número de DNI: ${dni}
-                - Correo Electrónico: ${email}
-                - Número de Celular: ${celular}
-                - Estado Civil: ${estadoCivil}
-                - Tipo de Mensaje: ${tipoMensaje}
-                - Asunto: ${asunto}
-                - Mensaje: ${mensaje}
-            `;
+                // Muestra los datos en la sección de resultados
+                resultadoDiv.style.display = "block";
+                resultadoList.innerHTML = `
+                    <li><strong>Nombres:</strong> ${nombres}</li>
+                    <li><strong>Apellidos:</strong> ${apellidos}</li>
+                    <li><strong>Número de DNI:</strong> ${dni}</li>
+                    <li><strong>Correo Electrónico:</strong> ${email}</li>
+                    <li><strong>Número de Celular:</strong> ${celular}</li>
+                    <li><strong>Estado Civil:</strong> ${estadoCivil}</li>
+                    <li><strong>Tipo de Mensaje:</strong> ${tipoMensaje}</li>
+                    <li><strong>Asunto:</strong> ${asunto}</li>
+                    <li><strong>Mensaje:</strong> ${mensaje}</li>
+                `;
+            });
 
-            // Mostrar el mensaje en una ventana emergente
-            alert(mensajeMostrar);
+            resetBtn.addEventListener("click", function () {
+                // Limpia los campos del formulario
+                document.getElementById("nombres").value = "";
+                document.getElementById("apellidos").value = "";
+                document.getElementById("dni").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("celular").value = "";
+                document.getElementById("estadoCivil").value = "soltero";
+                document.querySelector('input[name="tipoMensaje"]:checked').checked = false;
+                document.getElementById("asunto").value = "";
+                document.getElementById("mensaje").value = "";
 
-            // Restablecer el formulario
-            contactForm.reset();
+                // Oculta la sección de resultados
+                resultadoDiv.style.display = "none";
+            });
+
+            closeButton.addEventListener("click", function () {
+                resultadoDiv.style.display = "none";
+            });
         });
-    });
-</script>
+    </script>
     <footer>
 <nav>
             <ul>
