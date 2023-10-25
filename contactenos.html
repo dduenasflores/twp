@@ -106,7 +106,7 @@
     </section>
     </main>
        
-     <div id="resultado">
+    <div id="resultado" class="modal">
         <div class="modal-content">
             <span class="close" id="close">&times;</span>
             <h2>Datos ingresados en el formulario:</h2>
@@ -128,7 +128,7 @@
             contactForm.addEventListener("submit", function (event) {
                 event.preventDefault();
 
-                // Recoge los datos de todos los campos del formulario
+                // Recoge los datos del formulario
                 const nombres = document.getElementById("nombres").value;
                 const apellidos = document.getElementById("apellidos").value;
                 const dni = document.getElementById("dni").value;
@@ -156,18 +156,7 @@
 
             resetBtn.addEventListener("click", function () {
                 // Limpia los campos del formulario
-                document.getElementById("nombres").value = "";
-                document.getElementById("apellidos").value = "";
-                document.getElementById("dni").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("celular").value = "";
-                document.getElementById("estadoCivil").value = "soltero";
-                document.querySelector('input[name="tipoMensaje"]:checked').checked = false;
-                document.getElementById("asunto").value = "";
-                document.getElementById("mensaje").value = "";
-
-                // Oculta la sección de resultados
-                resultadoDiv.style.display = "none";
+                contactForm.reset();
             });
 
             closeButton.addEventListener("click", function () {
