@@ -76,15 +76,19 @@
     <img src="utp.jpg" alt="Supermercado UTP">
     <h1>BIENVENIDO AL SUPERMERCADO UTP</h1>
 </div>
-<nav>
-    <ul>
-        <li><a href="nosotros.html" target="contentFrame">Nosotros</a></li>
-        <li><a href="productos.html" target="contentFrame">Productos</a></li>
-        <li><a href="servicios.html" target="contentFrame">Servicios</a></li>
-        <li><a href="contactenos.html" target="contentFrame">Contáctenos</a></li>
-        <li><a href="iframe.html" target="contentFrame">IFrame</a></li>
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="index.html" onclick="loadPage('index.html'); return false;">Inicio</a></li>
+            <li><a href="nosotros.html" onclick="loadPage('nosotros.html'); return false;">Nosotros</a></li>
+            <li><a href="productos.html" onclick="loadPage('productos.html'); return false;">Productos</a></li>
+            <li><a href="servicios.html" onclick="loadPage('servicios.html'); return false;">Servicios</a></li>
+            <li><a href="contactenos.html" onclick="loadPage('contactenos.html'); return false;">Contáctenos</a></li>
+            <li><a href="iframe.html" onclick="loadPage('iframe.html'); return false;">IFrame</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <!-- El contenido se cargará aquí -->
+    </div>
     <header>
         <h2>Productos en oferta</h2>
         <div class="product-container">
@@ -143,6 +147,23 @@
                 }
             });
         });
+    </script>
+        <script>
+        function loadPage(pageUrl) {
+            const content = document.getElementById("content");
+            content.innerHTML = "Cargando...";
+
+            setTimeout(() => {
+                fetch(pageUrl)
+                    .then(response => response.text())
+                    .then(data => {
+                        content.innerHTML = data;
+                    })
+                    .catch(error => {
+                        content.innerHTML = "Error al cargar la página";
+                    });
+            }, 1000);
+        }
     </script>
 </body>
 </html>
