@@ -59,7 +59,7 @@
     </style>
     <main>
            <fieldset>
-           <legend>Contáctenos</legend>
+           <legend>Contáctenos.</legend>
                 <label for="nombres">Nombres:</label>
                 <input type="text" id="nombres" name="nombres" required><br>
 
@@ -97,11 +97,11 @@
 
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
-         <button type="submit">
+         <button type="button" id="submitBtn">
                         Enviar
                         <img src="enviar.png" alt="check" style="vertical-align: middle;">
                     </button>
-                    <button type="reset">
+                    <button type="button" id="resetBtn">
                         Limpiar
                         <img src="limpiar.jpg" alt="check" style="vertical-align: middle;">
                     </button>
@@ -110,7 +110,7 @@
         </section>
     </main>
        
-   <div id="resultado" class="modal">
+    <div id="resultado" class="modal">
         <div class="modal-content">
             <span class="close" id="close">&times;</span>
             <h2>Datos ingresados en el formulario:</h2>
@@ -123,14 +123,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const contactForm = document.getElementById("contactForm");
+            const submitBtn = document.getElementById("submitBtn");
+            const resetBtn = document.getElementById("resetBtn");
             const resultadoDiv = document.getElementById("resultado");
             const resultadoList = document.getElementById("resultado-list");
             const closeButton = document.getElementById("close");
 
-            contactForm.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                const nombres = contactForm.elements["nombres"].value;
+            submitBtn.addEventListener("click", function () {
+                // Recoge los datos del formulario
+                const nombres = document.getElementById("nombres").value;
                 // Recoge otros campos del formulario de la misma manera
 
                 resultadoDiv.style.display = "block";
@@ -138,6 +139,12 @@
                     <li><strong>Nombres:</strong> ${nombres}</li>
                     <!-- Agrega otros campos aquí -->
                 `;
+            });
+
+            resetBtn.addEventListener("click", function () {
+                // Limpia los campos del formulario
+                document.getElementById("nombres").value = "";
+                // Limpia otros campos del formulario de la misma manera
             });
 
             closeButton.addEventListener("click", function () {
