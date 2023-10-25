@@ -57,15 +57,14 @@ main {
 
 /* Estilos para los productos en oferta */
 .product-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 20px; /* Espacio entre las imágenes */
+    justify-content: center; /* Centrar horizontalmente */
 }
 
 .product {
     text-align: center;
-    margin: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
