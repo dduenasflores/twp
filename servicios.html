@@ -11,18 +11,19 @@
             background-color: #D3D3D3;
             margin: 0;
             padding: 0;
-        }
-
-        #servicios {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            min-height: 100vh;
         }
 
-        #servicios li {
-            width: 45%;
-            margin: 2.5%;
+        #servicios {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .servicio {
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -30,11 +31,11 @@
             transition: transform 0.3s;
         }
 
-        #servicios li:hover {
+        .servicio:hover {
             transform: scale(1.05);
         }
 
-        #servicios img {
+        .servicio img {
             max-width: 100%;
             height: auto;
             margin: 10px 0;
@@ -48,29 +49,26 @@
     </header>
     <main>
         <section id="servicios">
-
-            <ol>
-                <li>
-                    <h2>Guardería</h2>
-                    <img src="guarderia.jpg" alt="Guardería">
-                    <p>Servicio de guardería para niños mientras realizas tus compras.</p>
-                </li>
-                <li>
-                    <h2>Cochera</h2>
-                    <img src="cochera.jpg" alt="Cochera">
-                    <p>Amplia cochera para estacionar tu vehículo de forma segura y conveniente.</p>
-                </li>
-                <li>
-                    <h2>Lavado de Carros</h2>
-                    <img src="lavado.jpg" alt="Lavado de Carros">
-                    <p>Servicio de lavado de carros para mantener tu vehículo limpio y reluciente.</p>
-                </li>
-                <li>
-                    <h2>Lavandería</h2>
-                    <img src="almacen.jpg" alt="Almacén">
-                    <p>Lavandería para dejar tu ropa como nueva y limpia.</p>
-                </li>
-            </ol>
+            <div class="servicio">
+                <h2>Guardería:</h2>
+                <img src="guarderia.jpg" alt="Guardería">
+                <p>Servicio de guardería para niños mientras realizas tus compras.</p>
+            </div>
+            <div class="servicio">
+                <h2>Cochera:</h2>
+                <img src="cochera.jpg" alt="Cochera">
+                <p>Amplia cochera para estacionar tu vehículo de forma segura y conveniente.</p>
+            </div>
+            <div class="servicio">
+                <h2>Lavado de Carros:</h2>
+                <img src="lavado.jpg" alt="Lavado de Carros">
+                <p>Servicio de lavado de carros para mantener tu vehículo limpio y reluciente.</p>
+            </div>
+            <div class="servicio">
+                <h2>Lavandería:</h2>
+                <img src="almacen.jpg" alt="Almacén">
+                <p>Lavandería para dejar tu ropa como nueva y limpia.</p>
+            </div>
         </section>
     </main>
     <footer>
