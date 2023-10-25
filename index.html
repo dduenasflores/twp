@@ -1,5 +1,7 @@
-
-  <meta charset="UTF-8">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido al Supermercado UTP</title>
     <link rel="stylesheet" href="css/styles.css">
@@ -8,10 +10,12 @@
             background-image: url("fondoindex.jpg");
             font-family: Arial, sans-serif;
             color: #333;
+            text-align: center; /* Centrar el contenido en el cuerpo */
         }
         .header {
             display: flex;
             align-items: center;
+            justify-content: center; /* Centrar horizontalmente */
         }
         .header img {
             margin-left: 20px;
@@ -23,9 +27,23 @@
             display: flex;
             list-style: none;
             padding: 0;
+            justify-content: center; /* Centrar horizontalmente */
         }
         nav li {
             margin-right: 20px;
+        }
+        nav a {
+            display: inline-block;
+            background-color: #f1f1f1; /* Color de fondo para los botones */
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s; /* Transición de color al hacer clic */
+            text-decoration: none;
+            color: #333;
+        }
+        nav a:hover {
+            background-color: #ddd; /* Color de fondo al hacer hover */
         }
         iframe {
             width: 100%;
